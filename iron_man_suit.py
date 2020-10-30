@@ -5,6 +5,7 @@ Material = minecraft.gateway.jvm.org.bukkit.Material
 GameMode = minecraft.gateway.jvm.org.bukkit.GameMode
 
 print = System.out.println
+print('Hello Iron Man!')
 
 def on_projectile_hit(event):
     projectile = event.getEntity()
@@ -28,8 +29,8 @@ def on_inventory_click(event):
     else:
         cursor_item_name = "*nothing*"
 
-    if slot == 39 and slot_type == "ARMOR" and cursor_item_name == "IRON_HELMET":
-        print("*** PUTTING ON iron helmet")
+    if slot == 36 and slot_type == "ARMOR" and cursor_item_name == "IRON_BOOTS":
+        print("*** PUTTING ON iron boots")
 
         player = event.getClickedInventory().getHolder()
         player.setAllowFlight(True)
@@ -43,8 +44,8 @@ def on_inventory_click(event):
     else:
         inv_item_name = "*nothing*"
 
-    if slot == 39 and slot_type == "ARMOR" and inv_item_name == "IRON_HELMET":
-        print("*** TAKING OFF iron helmet")
+    if slot == 36 and slot_type == "ARMOR" and inv_item_name == "IRON_BOOTS":
+        print("*** TAKING OFF iron boots")
 
         player = event.getClickedInventory().getHolder()
         if player.getGameMode().toString() != "CREATIVE":
@@ -63,8 +64,8 @@ def on_player_join(event):
 def on_player_game_mode_change(event):
     player = event.getPlayer()
     inventory = player.getInventory()
-    inv_item = inventory.getItem(39)
-    if inv_item and inv_item.getType().toString() == "IRON_HELMET":
+    inv_item = inventory.getItem(36)
+    if inv_item and inv_item.getType().toString() == "IRON_BOOTS":
         player.setAllowFlight(True)
         player.setFlying(True)
         player.setMaxHealth(100.0)
